@@ -10,3 +10,21 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# Struktur Direktori
+FE-Habit-Tracker/
+├── src/
+│   ├── components/         # Komponen UI reusable (Button, Card, dsb.)
+│   ├── layouts/            # Layout global (DashboardLayout, AuthLayout)
+│   ├── pages/              # Halaman (Login, Register, Dashboard, Habits)
+│   │   ├── habits/         # Halaman CRUD Habits
+│   │   │   ├── HabitList.jsx
+│   │   │   ├── HabitForm.jsx
+│   │   │   ├── HabitDetail.jsx
+│   │   └── dashboard.jsx   # Dashboard utama
+│   ├── hooks/              # Custom hooks (misal useHabitsQuery, useHabitMutation)
+│   ├── services/           # API call (axios/fetch ke django-ninja)
+│   ├── lib/                # utils/helper (misal cn, fetch wrapper, dll.)
+│   ├── router/             # Tanstack Router setup
+│   ├── App.jsx
+│   └── main.jsx
