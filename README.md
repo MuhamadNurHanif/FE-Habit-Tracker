@@ -14,17 +14,17 @@ If you are developing a production application, we recommend using TypeScript wi
 # Struktur Direktori
 FE-Habit-Tracker/
 ├── src/
-│   ├── components/         # Komponen UI reusable (Button, Card, dsb.)
-│   ├── layouts/            # Layout global (DashboardLayout, AuthLayout)
-│   ├── pages/              # Halaman (Login, Register, Dashboard, Habits)
+│   ├── components/        
+│   ├── layouts/        
+│   ├── pages/      
 │   │   ├── habits/         # Halaman CRUD Habits
 │   │   │   ├── HabitList.jsx
 │   │   │   ├── HabitForm.jsx
 │   │   │   ├── HabitDetail.jsx
 │   │   └── dashboard.jsx   # Dashboard utama
-│   ├── hooks/              # Custom hooks (misal useHabitsQuery, useHabitMutation)
-│   ├── services/           # API call (axios/fetch ke django-ninja)
-│   ├── lib/                # utils/helper (misal cn, fetch wrapper, dll.)
+│   ├── hooks/              # Custom hooks 
+│   ├── services/           # API call 
+│   ├── lib/                # utils/helper 
 │   ├── router/             # Tanstack Router setup
 │   ├── App.jsx
 │   └── main.jsx
