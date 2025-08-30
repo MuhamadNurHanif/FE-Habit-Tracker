@@ -1,24 +1,23 @@
-// src/router/index.jsx
-import { createRootRoute, createRoute, Router, RouterProvider } from "@tanstack/react-router"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import SidebarLayout from "@/layouts/SidebarLayout"
 import Dashboard from "@/pages/dashboard"
+import HabitList from "@/pages/habits/HabitList"
+import HabitForm from "@/pages/habits/HabitForm"
+import HabitDetail from "@/pages/habits/HabitDetail"
 
-const rootRoute = createRootRoute({
-  component: () => (
-    <SidebarLayout>
-      <Outlet />
-    </SidebarLayout>
-  ),
-})
-
-const dashboardRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/",
-  component: Dashboard,
-})
-
-const routeTree = rootRoute.addChildren([dashboardRoute])
-const router = new Router({ routeTree })
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <SidebarLayout />,
+    children: [
+      { index: true, element: <Dashboard /> },
+      { path: "habits", element: <HabitList /> },
+      { path: "habits/new", element: <HabitForm /> },
+      { path: "habits/:id", element: <HabitDetail /> },
+      { path: "habits/:id/edit", element: <HabitForm /> },
+    ],
+  },
+])
 
 export default function AppRouter() {
   return <RouterProvider router={router} />
