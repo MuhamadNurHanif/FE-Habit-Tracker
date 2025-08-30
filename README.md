@@ -14,17 +14,20 @@ If you are developing a production application, we recommend using TypeScript wi
 # Struktur Direktori
 FE-Habit-Tracker/
 ├── src/
-│   ├── components/        
-│   ├── layouts/        
-│   ├── pages/      
-│   │   ├── habits/         # Halaman CRUD Habits
-│   │   │   ├── HabitList.jsx
-│   │   │   ├── HabitForm.jsx
-│   │   │   ├── HabitDetail.jsx
-│   │   └── dashboard.jsx   # Dashboard utama
-│   ├── hooks/              # Custom hooks 
-│   ├── services/           # API call 
-│   ├── lib/                # utils/helper 
-│   ├── router/             # Tanstack Router setup
-│   ├── App.jsx
-│   └── main.jsx
+│ ├── components/  
+│ │ ├── ui/ 
+│ │ │ ├── avatar/breadcrumb/button/collapsible/dropdown-menu/input/dll.jsx
+│ ├── layouts/  
+│ │ │ ├── SidebarLayout.jsx
+│ ├── pages/  
+│ │ ├── habits/ # Halaman CRUD Habits
+│ │ │ ├── HabitList.jsx
+│ │ │ ├── HabitForm.jsx
+│ │ │ ├── HabitDetail.jsx
+│ │ └── dashboard.jsx # Dashboard utama
+│ ├── hooks/ # Custom hooks
+│ ├── services/api.js
+│ ├── lib/ # utils/helper
+│ ├── router/index.jsx
+│ ├── App.jsx
+│ └── main.jsx

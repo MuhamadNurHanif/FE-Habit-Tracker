@@ -1,11 +1,10 @@
-import './index.css'
+// src/App.jsx
+import SidebarLayout from "@/layouts/SidebarLayout"
+import Dashboard from "@/pages/dashboard"
 
 function App() {
   return (
-   <div>
-
-   </div>
-
+   <h1 className="text-3xl font-bold">Hello World</h1>
   )
 }
 
