@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { DataTable } from "@/components/data-table";
 import { SiteHeader } from "@/components/site-header";
@@ -18,6 +19,7 @@ import {
 export default function Dashboard() {
   const { todosQuery, create, update, remove } = useTodos();
   const { register, handleSubmit, reset } = useForm();
+  const [open, setOpen] = useState(false);
 
   if (todosQuery.isLoading)
     return <p className="p-4">Loading habit tracker...</p>;
@@ -28,7 +30,10 @@ export default function Dashboard() {
 
   const onSubmit = (data) => {
     create.mutate(data, {
-      onSuccess: () => reset(),
+      onSuccess: () => {
+        reset();
+        setOpen(false);
+      },
     });
   };
 
@@ -38,9 +43,9 @@ export default function Dashboard() {
       <SidebarInset>
         <SiteHeader />
         <div className="p-6">
-          <Dialog>
+          <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button>Add Todo</Button>
+              <Button onClick={() => setOpen(true)}>Add Todo</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
