@@ -1,32 +1,39 @@
-import axios from "axios"
-
-export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api",
-  headers: { "Content-Type": "application/json" },
-})
-
+const API_URL = "http://localhost:8000/api/todos/"
 
 export const getTodos = async () => {
-  const { data } = await api.get("/todos/")
-  return data
+  const res = await fetch(API_URL)
+  if (!res.ok) throw new Error("Failed to fetch todos")
+  return res.json()
 }
 
 export const getTodo = async (id) => {
-  const { data } = await api.get(`/todos/${id}`)
-  return data
+  const res = await fetch(`${API_URL}${id}`)
+  if (!res.ok) throw new Error("Failed to fetch todo")
+  return res.json()
 }
 
-export const createTodo = async (payload) => {
-  const { data } = await api.post("/todos/", payload)
-  return data
+export const createTodo = async (todo) => {
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(todo),
+  })
+  if (!res.ok) throw new Error("Failed to create todo")
+  return res.json()
 }
 
-export const updateTodo = async (id, payload) => {
-  const { data } = await api.put(`/todos/${id}`, payload)
-  return data
+export const updateTodo = async ({ id, ...todo }) => {
+  const res = await fetch(`${API_URL}${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(todo),
+  })
+  if (!res.ok) throw new Error("Failed to update todo")
+  return res.json()
 }
 
 export const deleteTodo = async (id) => {
-  const { data } = await api.delete(`/todos/${id}`)
-  return data
+  const res = await fetch(`${API_URL}${id}`, { method: "DELETE" })
+  if (!res.ok) throw new Error("Failed to delete todo")
+  return res.json()
 }
