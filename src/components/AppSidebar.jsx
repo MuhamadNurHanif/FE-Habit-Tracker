@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-export default function AppSidebar() {
+export function AppSidebar() {
   const { pathname } = useLocation()
   const item = (to, label) => (
     <Link

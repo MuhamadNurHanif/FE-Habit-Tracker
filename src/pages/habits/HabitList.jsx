@@ -31,7 +31,7 @@ export default function HabitList() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Daftar Habits</h1>
-        <Link to="/habits/new"><Button>+ New</Button></Link>
+        <Link to="/todos/"><Button>+ New</Button></Link>
       </div>
 
       <div className="max-w-sm">
@@ -42,14 +42,14 @@ export default function HabitList() {
         {filtered.map((habit) => (
           <li key={habit.id} className="border rounded-xl p-3 flex items-center justify-between">
             <div>
-              <Link to={`/habits/${habit.id}`} className="font-semibold hover:underline">
+              <Link to={`/todos/${habit.id}`} className="font-semibold hover:underline">
                 {habit.title}
               </Link>
               {habit._optimistic && <span className="ml-2 text-xs text-amber-600">(syncing...)</span>}
               <p className="text-sm text-gray-500">{habit.description}</p>
             </div>
             <div className="flex gap-2">
-              <Link to={`/habits/${habit.id}/edit`}>
+              <Link to={`/todos/${habit.id}/edit`}>
                 <Button variant="outline">Edit</Button>
               </Link>
               <Button variant="destructive" onClick={() => onDelete(habit.id)}>Delete</Button>

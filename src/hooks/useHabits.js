@@ -17,7 +17,6 @@ export function useCreateHabit() {
   const qc = useQueryClient()
   return useMutation({
     mutationFn: createHabit,
-    // Optimistic update (optional)
     onMutate: async (newHabit) => {
       await qc.cancelQueries({ queryKey: ["habits"] })
       const prev = qc.getQueryData(["habits"])

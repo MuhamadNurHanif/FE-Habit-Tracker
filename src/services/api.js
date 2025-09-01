@@ -1,35 +1,32 @@
 import axios from "axios"
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? "http://localhost:8000/api",
+  baseURL: import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api",
   headers: { "Content-Type": "application/json" },
 })
 
-// ---- Habits endpoints (Django Ninja) ----
-// expected shape (contoh):
-// Habit: { id, title, description, frequency, created_at, updated_at, done? }
 
-export const getHabits = async () => {
-  const { data } = await api.get("/habits")
+export const getTodos = async () => {
+  const { data } = await api.get("/todos/")
   return data
 }
 
-export const getHabit = async (id) => {
-  const { data } = await api.get(`/habits/${id}`)
+export const getTodo = async (id) => {
+  const { data } = await api.get(`/todos/${id}`)
   return data
 }
 
-export const createHabit = async (payload) => {
-  const { data } = await api.post("/habits", payload)
+export const createTodo = async (payload) => {
+  const { data } = await api.post("/todos/", payload)
   return data
 }
 
-export const updateHabit = async (id, payload) => {
-  const { data } = await api.put(`/habits/${id}`, payload)
+export const updateTodo = async (id, payload) => {
+  const { data } = await api.put(`/todos/${id}`, payload)
   return data
 }
 
-export const deleteHabit = async (id) => {
-  const { data } = await api.delete(`/habits/${id}`)
+export const deleteTodo = async (id) => {
+  const { data } = await api.delete(`/todos/${id}`)
   return data
 }
