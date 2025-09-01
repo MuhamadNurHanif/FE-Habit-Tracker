@@ -38,7 +38,6 @@ export default function Dashboard() {
       <SidebarInset>
         <SiteHeader />
         <div className="p-6">
-          {/* Pop-up Add Todo */}
           <Dialog>
             <DialogTrigger asChild>
               <Button>Add Todo</Button>
@@ -66,7 +65,6 @@ export default function Dashboard() {
             </DialogContent>
           </Dialog>
 
-          {/* Todo List */}
           <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
             <DataTable
               data={todos}
