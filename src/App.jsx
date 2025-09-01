@@ -12,11 +12,6 @@ export default function App() {
         Go to Dashboard
       </Link>
 
-      
-      <div className="mt-6">
-        <h2 className="text-lg font-semibold">List Habits</h2>
-      
-      </div>
     </div>
   )
 }
