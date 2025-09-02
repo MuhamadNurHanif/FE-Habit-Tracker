@@ -24,19 +24,19 @@ Proyek ini mendemonstrasikan implementasi **CRUD Todo** dengan stack modern untu
 FE-Habit-Tracker/
 ├── src/
 │ ├── components/
-│ │ └── ui/ # Komponen UI (shadcn: button, input, sidebar, dll)
+│ │ └── ui/ 
 │ ├── layouts/
-│ │ └── SidebarLayout.jsx # Layout utama dengan sidebar
+│ │ └── SidebarLayout.jsx 
 │ ├── pages/
-│ │ ├── habits/ # Halaman CRUD Habits
-│ │ │ ├── HabitList.jsx # List todos
-│ │ │ ├── HabitForm.jsx # Create & Edit form
-│ │ │ ├── HabitDetail.jsx # Detail & Delete
-│ │ └── dashboard.jsx # Dashboard utama
-│ ├── hooks/ # Custom hooks
-│ ├── services/api.js # Client API (fetching ke backend)
-│ ├── lib/ # Helper/utilities
-│ ├── router/index.jsx # Konfigurasi routing
+│ │ ├── habits/ 
+│ │ │ ├── HabitList.jsx 
+│ │ │ ├── HabitForm.jsx 
+│ │ │ ├── HabitDetail.jsx 
+│ │ └── dashboard.jsx 
+│ ├── hooks/
+│ ├── services/api.js 
+│ ├── lib/ 
+│ ├── router/index.jsx
 │ ├── App.jsx
 │ └── main.jsx
 ```
