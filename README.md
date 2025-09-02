@@ -1,33 +1,70 @@
-# React + Vite
+# FE-Habit-Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Habit Tracker adalah aplikasi mini untuk membangun kebiasaan positif berbasis **React + Vite** dengan integrasi backend Django-Ninja.  
+Proyek ini mendemonstrasikan implementasi **CRUD Todo** dengan stack modern untuk frontend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Build Tool**: Vite
+- **Framework**: React.js
+- **UI**: TailwindCSS + Shadcn UI
+- **Routing**: Tanstack Router
+- **Forms**: React Hook Form
+- **Data Fetching**: Tanstack Query (React Query)
+- **Toast Notification**: Sonner
+- **API Backend**: Django-Ninja (lihat repo `BE-Habit-Tracker`)
+- **Database**: PostgreSQL (via backend)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
 
-# Struktur Direktori
+## Struktur Direktori
+
 FE-Habit-Tracker/
 ├── src/
-│ ├── components/  
-│ │ ├── ui/ 
-│ │ │ ├── avatar/breadcrumb/button/collapsible/dropdown-menu/input/dll.jsx
-│ ├── layouts/  
-│ │ │ ├── SidebarLayout.jsx
-│ ├── pages/  
+│ ├── components/
+│ │ └── ui/ # Komponen UI (shadcn: button, input, sidebar, dll)
+│ ├── layouts/
+│ │ └── SidebarLayout.jsx # Layout utama dengan sidebar
+│ ├── pages/
 │ │ ├── habits/ # Halaman CRUD Habits
-│ │ │ ├── HabitList.jsx
-│ │ │ ├── HabitForm.jsx
-│ │ │ ├── HabitDetail.jsx
+│ │ │ ├── HabitList.jsx # List todos
+│ │ │ ├── HabitForm.jsx # Create & Edit form
+│ │ │ ├── HabitDetail.jsx # Detail & Delete
 │ │ └── dashboard.jsx # Dashboard utama
 │ ├── hooks/ # Custom hooks
-│ ├── services/api.js
-│ ├── lib/ # utils/helper
-│ ├── router/index.jsx
+│ ├── services/api.js # Client API (fetching ke backend)
+│ ├── lib/ # Helper/utilities
+│ ├── router/index.jsx # Konfigurasi routing
 │ ├── App.jsx
 │ └── main.jsx
+
+---
+
+## Fitur
+
+- **List** → Menampilkan semua habit (GET /api/todos/)
+- **New** → Tambah habit baru (POST /api/todos/)
+- **Detail + Delete** → Lihat detail habit & hapus (GET + DELETE /api/todos/:id)
+- **Edit** → Edit habit (PUT /api/todos/:id)
+
+Semua interaksi:
+
+- Data di-fetch menggunakan **Tanstack Query** (`useQuery`, `useMutation`)
+- Refresh otomatis setelah create/update/delete via **queryInvalidation**
+- Opsional **optimistic update** untuk UX lebih cepat
+- Feedback menggunakan **Sonner toast dengan promise**
+
+---
+
+## Cara Menjalankan
+
+Clone repo:
+
+```bash
+git clone https://github.com/username/FE-Habit-Tracker.git
+cd FE-Habit-Tracker
+npm install
+npm run dev``
+```
