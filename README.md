@@ -20,7 +20,7 @@ Proyek ini mendemonstrasikan implementasi **CRUD Todo** dengan stack modern untu
 ---
 
 ## Struktur Direktori
-
+```bash
 FE-Habit-Tracker/
 ├── src/
 │ ├── components/
@@ -39,11 +39,11 @@ FE-Habit-Tracker/
 │ ├── router/index.jsx # Konfigurasi routing
 │ ├── App.jsx
 │ └── main.jsx
-
+```
 ---
 
 ## Fitur
-
+```bash
 - **List** → Menampilkan semua habit (GET /api/todos/)
 - **New** → Tambah habit baru (POST /api/todos/)
 - **Detail + Delete** → Lihat detail habit & hapus (GET + DELETE /api/todos/:id)
@@ -55,7 +55,7 @@ Semua interaksi:
 - Refresh otomatis setelah create/update/delete via **queryInvalidation**
 - Opsional **optimistic update** untuk UX lebih cepat
 - Feedback menggunakan **Sonner toast dengan promise**
-
+```
 ---
 
 ## Cara Menjalankan
