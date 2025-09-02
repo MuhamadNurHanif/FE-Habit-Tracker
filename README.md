@@ -52,7 +52,6 @@ FE-Habit-Tracker/
 - Edit → Edit habit (PUT /api/todos/:id)
 
 Semua interaksi:
-
 - Data di-fetch menggunakan Tanstack Query (`useQuery`, `useMutation`)
 - Refresh otomatis setelah create/update/delete via queryInvalidation
 - Opsional optimistic update untuk UX lebih cepat
