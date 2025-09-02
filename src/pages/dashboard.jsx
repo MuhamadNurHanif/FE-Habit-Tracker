@@ -45,29 +45,35 @@ export default function Dashboard() {
         <div className="p-6">
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button onClick={() => setOpen(true)}>Add Todo</Button>
+              <Button>Add Todo</Button>
             </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Add New Data</DialogTitle>
-                <DialogDescription>
-                  Fill in the form below to create a new todo.
-                </DialogDescription>
-              </DialogHeader>
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-4 mt-4"
-              >
-                <Input
-                  placeholder="Title"
-                  {...register("title", { required: true })}
-                />
-                <Input placeholder="Description" {...register("description")} />
-                <Button type="submit" disabled={create.isPending}>
-                  Save
-                </Button>
-              </form>
-            </DialogContent>
+
+            {open && (
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Add New Data</DialogTitle>
+                  <DialogDescription>
+                    Fill in the form below to create a new todo.
+                  </DialogDescription>
+                </DialogHeader>
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="flex flex-col gap-4 mt-4"
+                >
+                  <Input
+                    placeholder="Title"
+                    {...register("title", { required: true })}
+                  />
+                  <Input
+                    placeholder="Description"
+                    {...register("description")}
+                  />
+                  <Button type="submit" disabled={create.isPending}>
+                    Save
+                  </Button>
+                </form>
+              </DialogContent>
+            )}
           </Dialog>
 
           <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">

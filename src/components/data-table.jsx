@@ -59,13 +59,21 @@ const columns = [
   },
 ];
 
-export function DataTable({ data, onUpdate, onDelete }) {
+export const DataTable = React.memo(function DataTable({
+  data,
+  onUpdate,
+  onDelete,
+}) {
   const table = useReactTable({
-    data: data.map((todo) => ({
-      ...todo,
-      onUpdate,
-      onDelete,
-    })),
+    data: React.useMemo(
+      () =>
+        data.map((todo) => ({
+          ...todo,
+          onUpdate,
+          onDelete,
+        })),
+      [data, onUpdate, onDelete]
+    ),
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
@@ -109,4 +117,4 @@ export function DataTable({ data, onUpdate, onDelete }) {
       </Table>
     </div>
   );
-}
+});
